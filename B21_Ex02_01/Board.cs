@@ -1,9 +1,12 @@
 ﻿namespace B21_Ex02_01
 {
-    public class Labels
+    public class Constants
     {
         public const int MAX_BOARD_SIZE = 9;
         public const int MIN_BOARD_SIZE = 3;
+        public const int GAME_MODE_OPTION1 = 1;
+        public const int GAME_MODE_OPTION2 = 2;
+
     }
 
     public class Board

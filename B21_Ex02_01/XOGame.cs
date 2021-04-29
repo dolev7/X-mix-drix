@@ -11,9 +11,24 @@ namespace B21_Ex02_01
         public static void StartGame()
         {
             bool gameContinues = true;
+            bool gameAgainstComputer;
             Console.WriteLine("Please enter size of XO matrix");
-            int boardSize = getValidNumFromUser(Labels.MIN_BOARD_SIZE, Labels.MAX_BOARD_SIZE); 
+            int boardSize = getValidNumFromUser(Constants.MIN_BOARD_SIZE, Constants.MAX_BOARD_SIZE); 
             Board board = new Board(boardSize);
+            Console.WriteLine("Please choose the game mode");
+            Console.WriteLine("For XO game against the computer - press 1, For XO game against a human player - press 2");
+            string userInput;
+            userInput = Console.ReadLine();
+            int usersChoiceOfGameMode = getValidNumFromUser(Constants.GAME_MODE_OPTION1, Constants.GAME_MODE_OPTION2);
+            if (usersChoiceOfGameMode==Constants.GAME_MODE_OPTION1)
+            {
+                gameAgainstComputer = true;
+            }
+            else
+            {
+                gameAgainstComputer = false;
+            }
+
             BoardDrawer.drawBoard(board);
 
             while (gameContinues)
