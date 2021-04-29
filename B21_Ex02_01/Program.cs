@@ -4,7 +4,9 @@
     {
         public static void Main()
         {
-            XOGame.StartGame();
+            XOGame xogame = new XOGame();
+            xogame.initGame();
+            xogame.playGame();
         }
     }
 }

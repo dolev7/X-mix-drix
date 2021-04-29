@@ -39,6 +39,8 @@
     <Compile Include="Board.cs" />
     <Compile Include="BoardDrawer.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="UserInputValidator.cs" />
+    <Compile Include="UIMachine.cs" />
     <Compile Include="XOGame.cs" />
   </ItemGroup>
   <ItemGroup>
