@@ -13,7 +13,65 @@
 
         public void addShape(char shape, int row, int col)
         {
-            m_BoardMatrix[row,col] = shape;
+            m_BoardMatrix[row-1,col-1] = shape;
+        }
+
+        public bool CheckIfSquareTaken(int i_RowToCheck, int i_ColToCheck)
+        {
+            return m_BoardMatrix[i_RowToCheck - 1, i_ColToCheck - 1] != null;
+        }
+
+        public bool CheckForRightSequence(int i_RowToCheck, int i_ColToCheck)
+        {
+            char? symbolToCheck = m_BoardMatrix[i_RowToCheck - 1, i_ColToCheck - 1];
+            bool isSequence = true;
+            if (i_ColToCheck-1 > 0 || symbolToCheck == null)
+            {
+                isSequence = false;
+            }
+            else
+            {
+                for (int i=1; i<m_BoardSize; i++)
+                {
+                    if (m_BoardMatrix[i_RowToCheck-1,i] != symbolToCheck)
+                    {
+                        isSequence = false;
+                        break;
+                    }
+                }
+            }
+
+            return isSequence;
+        }
+        public bool CheckForDownSequence(int i_RowToCheck, int i_ColToCheck)
+        {
+            char? symbolToCheck = m_BoardMatrix[i_RowToCheck - 1, i_ColToCheck - 1];
+            bool isSequence = true;
+            if (i_RowToCheck - 1 > 0 || symbolToCheck == null)
+            {
+                isSequence = false;
+            }
+            else
+            {
+                for (int i = 1; i < m_BoardSize; i++)
+                {
+                    if (m_BoardMatrix[i, i_ColToCheck - 1] != symbolToCheck)
+                    {
+                        isSequence = false;
+                        break;
+                    }
+                }
+            }
+
+            return isSequence;
+        }
+        public bool CheckForRightDiagonalSequence(int i_RowToCheck, int i_ColToCheck)
+        {
+            return false;
+        }
+        public bool CheckForLeftDiagonalSequence(int i_RowToCheck, int i_ColToCheck)
+        {
+            return false;
         }
     }
 }

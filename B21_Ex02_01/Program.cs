@@ -5,8 +5,8 @@
         public static void Main()
         {
             XOGame xogame = new XOGame();
-            xogame.initGame();
-            xogame.playGame();
+            xogame.InitGame();
+            xogame.PlayGame();
         }
     }
 }

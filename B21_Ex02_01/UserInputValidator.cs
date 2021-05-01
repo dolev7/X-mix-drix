@@ -32,5 +32,6 @@ namespace B21_Ex02_01
             return validNum;
 
         }
+
     }
 }
