@@ -17,6 +17,8 @@ namespace B21_Ex02_01
         private bool? m_IsGameAgainstComputer;
         private Board m_Board;
         private int m_TurnCounter;
+        private int m_Player1WinsCounter;
+        private int m_Player2WinsCounter;
 
         public XOGame()
         {
@@ -24,13 +26,16 @@ namespace B21_Ex02_01
             m_IsGameAgainstComputer = null;
             m_Board = null;
             m_TurnCounter = 0;
-        }
+            m_Player1WinsCounter = 0;
+            m_Player2WinsCounter = 0;
+    }
         public void InitGame()
         {
             UIMachine.printMessageToUser("Please enter size of XO matrix");
             int boardSize = UserInputValidator.getValidNumFromUser(MIN_BOARD_SIZE, MAX_BOARD_SIZE); 
              m_Board = new Board(boardSize);
-            UIMachine.printMessageToUser(@"Please choose the game mode:
+            UIMachine.printMessageToUser
+(@"Please choose the game mode:
 For XO game against the computer - press 1
 For XO game against a human player - press 2");
             int usersChoiceOfGameMode = UserInputValidator.getValidNumFromUser(GAME_MODE_OPTION1, GAME_MODE_OPTION2);
@@ -46,6 +51,7 @@ For XO game against a human player - press 2");
         }
         public void PlayGame()
         {
+            bool playerHasWon = false;
             while (m_IsGameActive)
             {
                 if (m_IsGameAgainstComputer == true)
@@ -56,7 +62,48 @@ For XO game against a human player - press 2");
                 {
                     HumanUserTurn();
                 }
+                playerHasWon = CheckWin();
+                if(playerHasWon)
+                {
+                  
+                    if(m_TurnCounter %2 == 0)
+                    {
+                        m_Player1WinsCounter++;
+                        UIMachine.printMessageToUser("Player 1 has won");
+                    }
+                    else
+                    {
+                        m_Player2WinsCounter++;
+                        UIMachine.printMessageToUser("Player 2 has won");
+                    }
+                    StartOverMenu();
+                }
                 m_TurnCounter++;
+            }
+        }
+        public void StartOverMenu()
+        {
+
+            Console.WriteLine
+(@"Scoreboard:
+Player 1 : {0}
+Player 2 : {1}", m_Player1WinsCounter,m_Player2WinsCounter);
+            UIMachine.printMessageToUser
+(@"Do you want to play another round?:
+Yes - press 1
+No - press 2");
+            int usersChoice = UserInputValidator.getValidNumFromUser(GAME_MODE_OPTION1, GAME_MODE_OPTION2);
+            if(usersChoice == GAME_MODE_OPTION1)
+            {
+               
+                m_Board = new Board(m_Board.m_BoardSize);
+                m_TurnCounter = 0;
+                UIMachine.drawBoard(m_Board);
+                PlayGame();
+            }
+            else
+            {
+                UIMachine.printMessageToUser("Bye Bye :-)");      
             }
         }
         private void HumanUserTurn()
@@ -85,7 +132,6 @@ For XO game against a human player - press 2");
                 m_Board.addShape(symbol, selectedRow, selectedCol);
                 UIMachine.drawBoard(m_Board);
             }
-            CheckWin();
         }
 
         private void ComputerPlayerTurn()
@@ -96,9 +142,9 @@ For XO game against a human player - press 2");
         private bool CheckWin()
         {
             bool hasPlayerWon = false;
-            for (int i = 1; i < m_Board.m_BoardSize; i++)
+            for (int i = 1; i <= m_Board.m_BoardSize; i++)
             {
-                for (int j = 1; i < m_Board.m_BoardSize; j++)
+                for (int j = 1; j <= m_Board.m_BoardSize; j++)
                 {
                     if (m_Board.CheckForDownSequence(i, j) || m_Board.CheckForRightSequence(i, j) || m_Board.CheckForRightDiagonalSequence(i, j) || m_Board.CheckForLeftDiagonalSequence(i, j))
                     {
