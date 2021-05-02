@@ -8,27 +8,45 @@ namespace B21_Ex02_01
 {
     public class XOGame
     {
+        public class Player
+        {
+            private char m_Symbol;
+            private bool m_IsHuman;
+            private int m_PlayerWinsCounter;
+            public bool IsHuman
+            {
+                get; set;
+            }
+
+            public Player(char i_Symbol, bool i_IsHuman)
+            {
+                m_Symbol = i_Symbol;
+                m_IsHuman = i_IsHuman;
+                m_PlayerWinsCounter = 0;
+            }
+        }
         private const int k_MaxBoardSize = 9;
         private const int k_MinBoardSize = 3;
         private const int k_GameModeOptionOne = 1;
         private const int k_GameModeOptionTwo = 2;
 
+        private Player m_PlayerOne;
+        private Player m_PlayerTwo;
         private bool m_IsGameActive;
         private bool? m_IsGameAgainstComputer;
         private Board m_Board;
         private int m_TurnCounter;
         private int m_Player1WinsCounter;
         private int m_Player2WinsCounter;
-
+        
         public XOGame()
         {
+            m_PlayerOne = new Player('X', false);
+            m_PlayerTwo = new Player('O', false);
             m_IsGameActive = true;
-            m_IsGameAgainstComputer = null;
             m_Board = null;
             m_TurnCounter = 0;
-            m_Player1WinsCounter = 0;
-            m_Player2WinsCounter = 0;
-    }
+        }
 
         public void InitGame()
         {
