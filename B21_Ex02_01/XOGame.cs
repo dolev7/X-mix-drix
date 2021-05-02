@@ -13,6 +13,7 @@ namespace B21_Ex02_01
             private char m_Symbol;
             private bool m_IsHuman;
             private int m_PlayerWinsCounter;
+
             public bool IsHuman
             {
                 get; set;
@@ -25,6 +26,7 @@ namespace B21_Ex02_01
                 m_PlayerWinsCounter = 0;
             }
         }
+
         private const int k_MaxBoardSize = 9;
         private const int k_MinBoardSize = 3;
         private const int k_GameModeOptionOne = 1;
