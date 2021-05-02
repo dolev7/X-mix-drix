@@ -29,6 +29,7 @@ namespace B21_Ex02_01
             m_Player1WinsCounter = 0;
             m_Player2WinsCounter = 0;
     }
+
         public void InitGame()
         {
             UIMachine.printMessageToUser("Please enter size of XO matrix");
@@ -47,6 +48,7 @@ For XO game against a human player - press 2");
             {
                 m_IsGameAgainstComputer = false;
             }
+
             UIMachine.drawBoard(m_Board);
         }
         public void PlayGame()

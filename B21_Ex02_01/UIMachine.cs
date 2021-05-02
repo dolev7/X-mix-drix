@@ -75,16 +75,15 @@ namespace B21_Ex02_01
 
         private static void drawSeparator(int i_LengthOfLine)
         {
-            int lengthToPrint = i_LengthOfLine * 4 + 1;
+            int lengthToPrint = (i_LengthOfLine * 4) + 1;
             StringBuilder currentLine = new StringBuilder(lengthToPrint);
             currentLine.Append(" ");
             for (int i = 1; i <= lengthToPrint; i++)
             {
                 currentLine.Append("=");
             }
+
            printMessageToUser(currentLine);
-
         }
-
     }
 }

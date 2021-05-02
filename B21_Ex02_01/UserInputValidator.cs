@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B21_Ex02_01
 {
-    class UserInputValidator
+    public class UserInputValidator
     {
         public static int getValidNumFromUser(int i_MinValue, int i_MaxValue)
         {
@@ -30,8 +30,6 @@ namespace B21_Ex02_01
             }
 
             return validNum;
-
         }
-
     }
 }
