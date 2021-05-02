@@ -117,6 +117,7 @@ No - press 2");
             {
                 symbol = 'O';
             }
+
             UIMachine.printMessageToUser("Please enter row number");
             int selectedRow = UserInputValidator.getValidNumFromUser(1, m_Board.m_BoardSize);
             UIMachine.printMessageToUser("Please enter col number");
@@ -156,9 +157,5 @@ No - press 2");
 
             return hasPlayerWon;
         }
-
-
-
     }
-
 }
