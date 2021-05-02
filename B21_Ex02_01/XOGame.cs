@@ -51,6 +51,7 @@ For XO game against a human player - press 2");
 
             UIMachine.drawBoard(m_Board);
         }
+
         public void PlayGame()
         {
             bool playerHasWon = false;
@@ -64,11 +65,11 @@ For XO game against a human player - press 2");
                 {
                     HumanUserTurn();
                 }
+
                 playerHasWon = CheckWin();
                 if(playerHasWon)
                 {
-                  
-                    if(m_TurnCounter %2 == 0)
+                    if(m_TurnCounter % 2 == 0)
                     {
                         m_Player1WinsCounter++;
                         UIMachine.printMessageToUser("Player 1 has won");
@@ -78,18 +79,22 @@ For XO game against a human player - press 2");
                         m_Player2WinsCounter++;
                         UIMachine.printMessageToUser("Player 2 has won");
                     }
+
                     StartOverMenu();
                 }
+
                 m_TurnCounter++;
             }
         }
+
         public void StartOverMenu()
         {
-
             Console.WriteLine
 (@"Scoreboard:
 Player 1 : {0}
-Player 2 : {1}", m_Player1WinsCounter,m_Player2WinsCounter);
+Player 2 : {1}",
+m_Player1WinsCounter,
+m_Player2WinsCounter);
             UIMachine.printMessageToUser
 (@"Do you want to play another round?:
 Yes - press 1
@@ -97,7 +102,6 @@ No - press 2");
             int usersChoice = UserInputValidator.getValidNumFromUser(GAME_MODE_OPTION1, GAME_MODE_OPTION2);
             if(usersChoice == GAME_MODE_OPTION1)
             {
-               
                 m_Board = new Board(m_Board.m_BoardSize);
                 m_TurnCounter = 0;
                 UIMachine.drawBoard(m_Board);
@@ -108,10 +112,11 @@ No - press 2");
                 UIMachine.printMessageToUser("Bye Bye :-)");      
             }
         }
+
         private void HumanUserTurn()
         {
             char symbol;
-            if (m_TurnCounter%2 == 0)
+            if (m_TurnCounter % 2 == 0)
             {
                 symbol = 'X';
             }
