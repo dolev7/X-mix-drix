@@ -2,7 +2,8 @@
 {
     public class Board
     {
-        public char?[,] m_BoardMatrix; ///need to change to private 
+        public char?[,] m_BoardMatrix;
+        ///need to change to private 
         public int m_BoardSize;
 
         public Board(int i_SizeOfBoard)

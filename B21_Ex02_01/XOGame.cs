@@ -8,10 +8,10 @@ namespace B21_Ex02_01
 {
     public class XOGame
     {
-        private const int MAX_BOARD_SIZE = 9;
-        private const int MIN_BOARD_SIZE = 3;
-        private const int GAME_MODE_OPTION1 = 1;
-        private const int GAME_MODE_OPTION2 = 2;
+        private const int k_MaxBoardSize = 9;
+        private const int k_MinBoardSize = 3;
+        private const int k_GameModeOptionOne = 1;
+        private const int k_GameModeOptionTwo = 2;
 
         private bool m_IsGameActive;
         private bool? m_IsGameAgainstComputer;
@@ -33,14 +33,14 @@ namespace B21_Ex02_01
         public void InitGame()
         {
             UIMachine.printMessageToUser("Please enter size of XO matrix");
-            int boardSize = UserInputValidator.getValidNumFromUser(MIN_BOARD_SIZE, MAX_BOARD_SIZE); 
+            int boardSize = UserInputValidator.getValidNumFromUser(k_MinBoardSize, k_MaxBoardSize); 
              m_Board = new Board(boardSize);
             UIMachine.printMessageToUser
 (@"Please choose the game mode:
 For XO game against the computer - press 1
 For XO game against a human player - press 2");
-            int usersChoiceOfGameMode = UserInputValidator.getValidNumFromUser(GAME_MODE_OPTION1, GAME_MODE_OPTION2);
-            if (usersChoiceOfGameMode == GAME_MODE_OPTION1)
+            int usersChoiceOfGameMode = UserInputValidator.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
+            if (usersChoiceOfGameMode == k_GameModeOptionOne)
             {
                 m_IsGameAgainstComputer = true;
             }
@@ -99,8 +99,8 @@ m_Player2WinsCounter);
 (@"Do you want to play another round?:
 Yes - press 1
 No - press 2");
-            int usersChoice = UserInputValidator.getValidNumFromUser(GAME_MODE_OPTION1, GAME_MODE_OPTION2);
-            if(usersChoice == GAME_MODE_OPTION1)
+            int usersChoice = UserInputValidator.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
+            if(usersChoice == k_GameModeOptionOne)
             {
                 m_Board = new Board(m_Board.m_BoardSize);
                 m_TurnCounter = 0;
