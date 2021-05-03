@@ -6,13 +6,17 @@
         private int m_BoardSize;
         public char?[,] BoardMatrix
         {
-            get;
-            set;
+            get
+            {
+                return m_BoardMatrix;
+            }
         }
         public int BoardSize
         {
-            get;
-            set;
+            get
+            {
+                return m_BoardSize;
+            }
         }
 
         public Board(int i_SizeOfBoard)
