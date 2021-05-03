@@ -28,7 +28,7 @@ namespace B21_Ex02_01
         public static void drawBoard(Board i_GameBoard)
         {
             Ex02.ConsoleUtils.Screen.Clear();
-            int sizeOfMatrix = i_GameBoard.m_BoardSize;
+            int sizeOfMatrix = i_GameBoard.BoardSize;
             drawUpperBounds(sizeOfMatrix);
             for (int i = 1; i <= sizeOfMatrix; i++)
             {
@@ -58,13 +58,13 @@ namespace B21_Ex02_01
             for (int i = 1; i <= i_MatrixRows; i++)
             {
                 currentLine.Append(" ");
-                if (i_GameBoard.m_BoardMatrix[i_CurrentLineNumber - 1, i - 1] == null)
+                if (i_GameBoard.BoardMatrix[i_CurrentLineNumber - 1, i - 1] == null)
                 {
                     currentLine.Append(" ");
                 }
                 else
                 {
-                    currentLine.Append(i_GameBoard.m_BoardMatrix[i_CurrentLineNumber - 1, i - 1]);
+                    currentLine.Append(i_GameBoard.BoardMatrix[i_CurrentLineNumber - 1, i - 1]);
                 }
 
                 currentLine.Append(" |");

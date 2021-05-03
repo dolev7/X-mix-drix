@@ -2,9 +2,18 @@
 {
     public class Board
     {
-        public char?[,] m_BoardMatrix;
-        ///need to change to private 
-        public int m_BoardSize;
+        private char?[,] m_BoardMatrix;
+        private int m_BoardSize;
+        public char?[,] BoardMatrix
+        {
+            get;
+            set;
+        }
+        public int BoardSize
+        {
+            get;
+            set;
+        }
 
         public Board(int i_SizeOfBoard)
         {
@@ -80,7 +89,7 @@
             }
             else
             {
-                for (int i = 1; i < m_BoardSize;i++)
+                for (int i = 1; i < m_BoardSize; i++)
                 {
                     if (m_BoardMatrix[i_RowToCheck + i, i_ColToCheck + i] != symbolToCheck)
                     {
@@ -113,6 +122,7 @@
                     }
                 }
             }
+
             return isSequence;
         }
     }

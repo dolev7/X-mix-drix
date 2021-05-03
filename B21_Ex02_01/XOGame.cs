@@ -31,6 +31,8 @@ namespace B21_Ex02_01
         private const int k_MinBoardSize = 3;
         private const int k_GameModeOptionOne = 1;
         private const int k_GameModeOptionTwo = 2;
+        private const char k_SymbolOne = 'X';
+        private const char k_SymbolTwo = 'O';
 
         private Player m_PlayerOne;
         private Player m_PlayerTwo;
@@ -43,8 +45,8 @@ namespace B21_Ex02_01
         
         public XOGame()
         {
-            m_PlayerOne = new Player('X', false);
-            m_PlayerTwo = new Player('O', false);
+            m_PlayerOne = new Player(k_SymbolOne, false);
+            m_PlayerTwo = new Player(k_SymbolTwo, false);
             m_IsGameActive = true;
             m_Board = null;
             m_TurnCounter = 0;
@@ -110,7 +112,7 @@ For XO game against a human player - press 2");
         public void StartOverMenu()
         {
             Console.WriteLine
-(@"Scoreboard:
+            (@"Scoreboard:
 Player 1 : {0}
 Player 2 : {1}",
 m_Player1WinsCounter,
@@ -122,7 +124,7 @@ No - press 2");
             int usersChoice = UserInputValidator.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
             if(usersChoice == k_GameModeOptionOne)
             {
-                m_Board = new Board(m_Board.m_BoardSize);
+                m_Board = new Board(m_Board.BoardSize);
                 m_TurnCounter = 0;
                 UIMachine.drawBoard(m_Board);
                 PlayGame();
@@ -139,17 +141,17 @@ No - press 2");
             char symbol;
             if (m_TurnCounter % 2 == 0)
             {
-                symbol = 'X';
+                symbol = k_SymbolOne;
             }
             else
             {
-                symbol = 'O';
+                symbol = k_SymbolTwo;
             }
 
             UIMachine.printMessageToUser("Please enter row number");
-            int selectedRow = UserInputValidator.getValidNumFromUser(1, m_Board.m_BoardSize);
+            int selectedRow = UserInputValidator.getValidNumFromUser(1, m_Board.BoardSize);
             UIMachine.printMessageToUser("Please enter col number");
-            int selectedCol = UserInputValidator.getValidNumFromUser(1, m_Board.m_BoardSize);
+            int selectedCol = UserInputValidator.getValidNumFromUser(1, m_Board.BoardSize);
             bool isSquareTaken = m_Board.CheckIfSquareTaken(selectedRow, selectedCol);
             if (isSquareTaken)
             {
@@ -171,9 +173,9 @@ No - press 2");
         private bool CheckWin()
         {
             bool hasPlayerWon = false;
-            for (int i = 1; i <= m_Board.m_BoardSize; i++)
+            for (int i = 1; i <= m_Board.BoardSize; i++)
             {
-                for (int j = 1; j <= m_Board.m_BoardSize; j++)
+                for (int j = 1; j <= m_Board.BoardSize; j++)
                 {
                     if (m_Board.CheckForDownSequence(i, j) || m_Board.CheckForRightSequence(i, j) || m_Board.CheckForRightDiagonalSequence(i, j) || m_Board.CheckForLeftDiagonalSequence(i, j))
                     {
