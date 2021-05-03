@@ -70,12 +70,50 @@
 
         public bool CheckForRightDiagonalSequence(int i_RowToCheck, int i_ColToCheck)
         {
-            return false;
+            i_ColToCheck--;
+            i_RowToCheck--;
+            char? symbolToCheck = m_BoardMatrix[i_RowToCheck, i_ColToCheck];
+            bool isSequence = true;
+            if (i_RowToCheck > 0 || i_ColToCheck > 0 || symbolToCheck == null)
+            {
+                isSequence = false;
+            }
+            else
+            {
+                for (int i = 1; i < m_BoardSize;i++)
+                {
+                    if (m_BoardMatrix[i_RowToCheck + i, i_ColToCheck + i] != symbolToCheck)
+                    {
+                        isSequence = false;
+                        break;
+                    }
+                }
+            }
+            return isSequence;
         }
 
         public bool CheckForLeftDiagonalSequence(int i_RowToCheck, int i_ColToCheck)
         {
-            return false;
+            i_RowToCheck--;
+            i_ColToCheck--;
+            char? symbolToCheck = m_BoardMatrix[i_RowToCheck, i_ColToCheck ];
+            bool isSequence = true;
+            if (i_RowToCheck > 0 || i_ColToCheck < m_BoardSize - 1 || symbolToCheck == null)
+            {
+                isSequence = false;
+            }
+            else
+            {
+                for (int i = 1; i < m_BoardSize; i++)
+                {
+                    if (m_BoardMatrix[i_RowToCheck + i, i_ColToCheck - i] != symbolToCheck)
+                    {
+                        isSequence = false;
+                        break;
+                    }
+                }
+            }
+            return isSequence;
         }
     }
 }

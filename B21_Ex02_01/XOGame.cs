@@ -74,9 +74,9 @@ For XO game against a human player - press 2");
 
         public void PlayGame()
         {
-            bool playerHasWon = false;
             while (m_IsGameActive)
             {
+                bool playerHasWon = false;
                 if (m_IsGameAgainstComputer == true)
                 {
                     ComputerPlayerTurn();
@@ -91,13 +91,13 @@ For XO game against a human player - press 2");
                 {
                     if(m_TurnCounter % 2 == 0)
                     {
-                        m_Player1WinsCounter++;
-                        UIMachine.printMessageToUser("Player 1 has won");
+                        m_Player2WinsCounter++;
+                        UIMachine.printMessageToUser("Player 2 has won");
                     }
                     else
                     {
-                        m_Player2WinsCounter++;
-                        UIMachine.printMessageToUser("Player 2 has won");
+                        m_Player1WinsCounter++;
+                        UIMachine.printMessageToUser("Player 1 has won");
                     }
 
                     StartOverMenu();
@@ -129,7 +129,8 @@ No - press 2");
             }
             else
             {
-                UIMachine.printMessageToUser("Bye Bye :-)");      
+                UIMachine.printMessageToUser("Bye Bye :-)");
+                m_IsGameActive = false;
             }
         }
 
