@@ -3,14 +3,7 @@
     public class Board
     {
         private char?[,] m_BoardMatrix;
-        private int m_BoardSize;
-        public char?[,] BoardMatrix
-        {
-            get
-            {
-                return m_BoardMatrix;
-            }
-        }
+        private readonly int m_BoardSize;
         public int BoardSize
         {
             get
@@ -18,6 +11,14 @@
                 return m_BoardSize;
             }
         }
+        public char?[,] BoardMatrix
+        {
+            get
+            {
+                return m_BoardMatrix;
+            }
+        }
+
 
         public Board(int i_SizeOfBoard)
         {

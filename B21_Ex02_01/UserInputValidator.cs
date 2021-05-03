@@ -12,11 +12,9 @@ namespace B21_Ex02_01
         {
             bool isValid = false;
             int validNum = 0;
-            string userInput;
-
             while (!isValid)
             {
-                userInput = UIMachine.getDataFromUser();
+                string userInput = UIMachine.getDataFromUser();
                 isValid = int.TryParse(userInput, out validNum);
                 if ((validNum >= i_MinValue) && (validNum <= i_MaxValue))
                 {
