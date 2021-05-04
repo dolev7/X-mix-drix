@@ -1,9 +1,27 @@
-﻿namespace B21_Ex02_01
+﻿using System.Collections.Generic;
+
+namespace B21_Ex02_01
 {
     public class Board
     {
         private char?[,] m_BoardMatrix;
         private readonly int m_BoardSize;
+        private List<Square> m_AvailableSqaures;
+
+        public List<Square> AvailableSquares
+        {
+            get
+            {
+                return m_AvailableSqaures;
+            }
+        }
+
+        public struct Square
+        {
+            public int m_Row;
+            public int m_Col;
+        }
+
         public int BoardSize
         {
             get
@@ -11,6 +29,7 @@
                 return m_BoardSize;
             }
         }
+
         public char?[,] BoardMatrix
         {
             get
@@ -19,16 +38,24 @@
             }
         }
 
-
         public Board(int i_SizeOfBoard)
         {
             m_BoardSize = i_SizeOfBoard;
             m_BoardMatrix = new char?[i_SizeOfBoard, i_SizeOfBoard];
+            m_AvailableSqaures = new List<Square>();
+            for (int i = 0; i < m_BoardSize; i++)
+            {
+                for (int j = 0; j < m_BoardSize; j++)
+                {
+                    m_AvailableSqaures.Add(new Square() { m_Row = i, m_Col = j });
+                }
+            }
         }
 
         public void addShape(char shape, int row, int col)
         {
             m_BoardMatrix[row - 1, col - 1] = shape;
+            m_AvailableSqaures.Remove(new Square() { m_Row = row - 1, m_Col = col - 1 });
         }
 
         public bool CheckIfSquareTaken(int i_RowToCheck, int i_ColToCheck)

@@ -2,11 +2,10 @@
 {
     public class Program
     {
+
         public static void Main()
         {
-            XOGame xogame = new XOGame();
-            xogame.InitGame();
-            xogame.PlayGame();
+            UI.RunGame();
         }
     }
 }

@@ -6,7 +6,6 @@ C:\C#\DN_Course2\B21 Ex02 Daniel 316601996 Omer 316124437\B21_Ex02_01\obj\Debug\
 C:\C#\DN_Course2\B21 Ex02 Daniel 316601996 Omer 316124437\B21_Ex02_01\obj\Debug\B21_Ex02_01.pdb
 C:\C#\DN_Course2\B21 Ex02 Daniel 316601996 Omer 316124437\B21_Ex02_01\bin\Debug\Ex02.ConsoleUtils.dll
 C:\C#\DN_Course2\B21 Ex02 Daniel 316601996 Omer 316124437\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CopyComplete
-C:\C#\DN_Course2\B21 Ex02 Daniel 316601996 Omer 316124437\B21_Ex02_01\obj\Debug\B21_Ex02_01.csprojAssemblyReference.cache
 C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex02_01\bin\Debug\B21_Ex02_01.exe.config
 C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex02_01\bin\Debug\B21_Ex02_01.exe
 C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex02_01\bin\Debug\B21_Ex02_01.pdb
