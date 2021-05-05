@@ -48,6 +48,7 @@ namespace B21_Ex02_01
                 m_PlayerTwo.IsHuman = false;
             }
 
+            OutputManager.drawBoard(m_GameBoard);
         }
 
         public void PlayGame()
@@ -74,36 +75,27 @@ namespace B21_Ex02_01
             }
         }
 
-        public void UpdateEndRoundResult(bool isTieGame)
+        public void UpdateEndRoundResult(bool i_IsTieGame)
         {
-            if(isTieGame)
-            {
-                OutputManager.printMessageToUser("Game ended with tie");
-            }
-           else if (m_TurnCounter % 2 == 0)
+            bool playerOneWon = false;
+
+            if (m_TurnCounter % 2 == 0)
             {
                 m_PlayerTwo.WinsCounter++;
-                OutputManager.printMessageToUser("Player 2 has won");
             }
             else
             {
                 m_PlayerOne.WinsCounter++;
-                OutputManager.printMessageToUser("Player 1 has won");
+                playerOneWon = true;
             }
+            OutputManager.printGameResult(i_IsTieGame, playerOneWon);
         }
 
         public void StartOverMenu()
         {
-            Console.WriteLine
-            (@"Scoreboard:
-Player 1 : {0}
-Player 2 : {1}",
-m_PlayerOne.WinsCounter,
-m_PlayerTwo.WinsCounter);
-            OutputManager.printMessageToUser
-(@"Do you want to play another round?:
-Yes - press 1
-No - press 2");
+            OutputManager.PrintScoreBoard(m_PlayerOne.WinsCounter, m_PlayerTwo.WinsCounter);
+            OutputManager.PrintUserRequestForAnotherRound();
+
             int usersChoice = InputManager.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
             if(usersChoice == k_GameModeOptionOne)
             {
@@ -114,7 +106,7 @@ No - press 2");
             }
             else
             {
-                OutputManager.printMessageToUser("Bye Bye :-)");
+                OutputManager.PrintGameOver();
                 m_IsGameActive = false;
             }
         }

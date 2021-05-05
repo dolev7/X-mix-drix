@@ -14,30 +14,17 @@ namespace B21_Ex02_01
         public const int k_GameModeOptionTwo = 2;
         public const char k_SymbolOne = 'X';
         public const char k_SymbolTwo = 'O';
+
         public static void RunGame()
         {
-            OutputManager.printMessageToUser("Please enter size of XO board");
+            OutputManager.PrintRequestForBoardSize();
             int boardSize = InputManager.getValidNumFromUser(k_MinBoardSize, k_MaxBoardSize);
-            OutputManager.printMessageToUser
-(@"Please choose the game mode:
-For XO game against the computer - press 1
-For XO game against a human player - press 2");
+            OutputManager.printRequestForGameMode();
             int usersChoiceOfGameMode = InputManager.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
 
             GameManager xogame = new GameManager();
             xogame.InitGame(boardSize, usersChoiceOfGameMode);
-            OutputManager.drawBoard(xogame.GameBoard);
             xogame.PlayGame();
-        }
-        public static Board.Square GetSquareFromPlayer(int i_BoardSize)
-        {
-            OutputManager.printMessageToUser("Please enter row number");
-            int userRowChoice = InputManager.getValidNumFromUser(1, i_BoardSize);
-            OutputManager.printMessageToUser("Please enter col number");
-            int userColChoice = InputManager.getValidNumFromUser(1, i_BoardSize);
-            Board.Square userSquareChoice = new Board.Square() { m_Row = userRowChoice, m_Col = userColChoice };
-
-            return userSquareChoice;
         }
 
     }

@@ -46,11 +46,11 @@ namespace B21_Ex02_01
             }
             public void MakeHumanMove(Board i_GameBoard)
             {
-                Board.Square selectedSquare = UI.GetSquareFromPlayer(i_GameBoard.BoardSize);
+                Board.Square selectedSquare = InputManager.GetSquareFromPlayer(i_GameBoard.BoardSize);
                 bool isSquareTaken = i_GameBoard.CheckIfSquareTaken(selectedSquare);
                 if (isSquareTaken)
                 {
-                    OutputManager.printMessageToUser("The Square you selected is taken, Select a valid Square");
+                    OutputManager.PrintInvalidSquareError();
                     MakeHumanMove(i_GameBoard);
                 }
                 else
