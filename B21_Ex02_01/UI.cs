@@ -15,7 +15,7 @@ namespace B21_Ex02_01
             int boardSize = InputManager.getValidNumFromUser(GameManager.k_MinBoardSize, GameManager.k_MaxBoardSize);
             GameManager.CheckForUserWithdraw();
             OutputManager.printRequestForGameMode();
-            int usersChoiceOfGameMode = InputManager.getValidNumFromUser(GameManager.k_GameModeOptionOne, GameManager.k_GameModeOptionTwo);
+            int usersChoiceOfGameMode = InputManager.getValidNumFromUser((int)GameManager.eGameModes.GameModeOptionOne, (int)GameManager.eGameModes.GameModeOptionTwo);
             GameManager.CheckForUserWithdraw();
             xoGame.InitGame(boardSize, usersChoiceOfGameMode);
             xoGame.PlayGame();

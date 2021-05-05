@@ -11,8 +11,13 @@ namespace B21_Ex02_01
     {
         public const int k_MaxBoardSize = 9;
         public const int k_MinBoardSize = 3;
-        public const int k_GameModeOptionOne = 1;
-        public const int k_GameModeOptionTwo = 2;
+
+        public enum eGameModes
+        {
+            GameModeOptionOne = 1,
+            GameModeOptionTwo
+        }
+
         public const char k_SymbolOne = 'X';
         public const char k_SymbolTwo = 'O';
 
@@ -46,7 +51,7 @@ namespace B21_Ex02_01
         {
 
              m_GameBoard = new Board(i_BoardSize);
-            if (i_UsersChoiceOfGameMode == k_GameModeOptionOne)
+            if (i_UsersChoiceOfGameMode == (int)eGameModes.GameModeOptionOne)
             {
                 m_PlayerTwo.IsHuman = false;
             }
@@ -81,15 +86,17 @@ namespace B21_Ex02_01
         public void UpdateEndRoundResult(bool i_IsTieGame)
         {
             bool playerOneWon = false;
-
-            if (m_TurnCounter % 2 == 0)
+            if(!i_IsTieGame)
             {
-                m_PlayerTwo.WinsCounter++;
-            }
-            else
-            {
-                m_PlayerOne.WinsCounter++;
-                playerOneWon = true;
+                if(m_TurnCounter % 2 == 0)
+                {
+                    m_PlayerTwo.WinsCounter++;
+                }
+                else
+                {
+                    m_PlayerOne.WinsCounter++;
+                    playerOneWon = true;
+                }
             }
             OutputManager.printGameResult(i_IsTieGame, playerOneWon);
         }
@@ -98,8 +105,8 @@ namespace B21_Ex02_01
         {
             OutputManager.PrintScoreBoard(m_PlayerOne.WinsCounter, m_PlayerTwo.WinsCounter);
             OutputManager.PrintUserRequestForAnotherRound();
-            int usersChoice = InputManager.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
-            if(usersChoice == k_GameModeOptionOne)
+            int usersChoice = InputManager.getValidNumFromUser((int)eGameModes.GameModeOptionOne, (int)eGameModes.GameModeOptionTwo);
+            if(usersChoice == (int)eGameModes.GameModeOptionOne)
             {
                 m_GameBoard = new Board(m_GameBoard.BoardSize);
                 m_TurnCounter = 0;
