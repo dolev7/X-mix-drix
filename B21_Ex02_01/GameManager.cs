@@ -16,6 +16,8 @@ namespace B21_Ex02_01
         public const char k_SymbolOne = 'X';
         public const char k_SymbolTwo = 'O';
 
+        public static bool m_Qselected;
+
         private Player m_PlayerOne;
         private Player m_PlayerTwo;
         private bool m_IsGameActive;
@@ -24,6 +26,7 @@ namespace B21_Ex02_01
 
         public GameManager()
         {
+            m_Qselected = false;
             m_PlayerOne = new Player(k_SymbolOne, true);
             m_PlayerTwo = new Player(k_SymbolTwo, true);
             m_IsGameActive = true;
@@ -95,7 +98,6 @@ namespace B21_Ex02_01
         {
             OutputManager.PrintScoreBoard(m_PlayerOne.WinsCounter, m_PlayerTwo.WinsCounter);
             OutputManager.PrintUserRequestForAnotherRound();
-
             int usersChoice = InputManager.getValidNumFromUser(k_GameModeOptionOne, k_GameModeOptionTwo);
             if(usersChoice == k_GameModeOptionOne)
             {
@@ -152,7 +154,24 @@ namespace B21_Ex02_01
                     m_PlayerTwo.MakeComputerMove(m_GameBoard, computerAiChoice);
                 }
             }
-            OutputManager.drawBoard(m_GameBoard);
+
+            if(m_Qselected)
+            {
+                m_Qselected = false;
+                StartOverMenu();
+            }
+            else
+            {
+                OutputManager.drawBoard(m_GameBoard);
+            }
+        }
+
+        public static void CheckForUserWithdraw()
+        {
+            if (GameManager.m_Qselected)
+            {
+                OutputManager.PrintGameOver();
+            }
         }
 
         private bool CheckWin()

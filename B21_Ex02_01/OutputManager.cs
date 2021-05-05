@@ -58,11 +58,12 @@ i_PlayerTwoWinsCounter);
         public static void PrintGameOver()
         {
             Console.WriteLine("Bye Bye :-)");
+            Environment.Exit(0);
         }
 
         public static void PrintRequestForBoardSize()
         {
-            Console.WriteLine("Please enter size of XO board");
+            Console.WriteLine("Please enter size of XO board between 3 and 9");
         }
 
         public static void PrintRequestForRow()

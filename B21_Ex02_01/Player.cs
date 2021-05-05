@@ -46,16 +46,20 @@ namespace B21_Ex02_01
             }
             public void MakeHumanMove(Board i_GameBoard)
             {
-                Board.Square selectedSquare = InputManager.GetSquareFromPlayer(i_GameBoard.BoardSize);
-                bool isSquareTaken = i_GameBoard.CheckIfSquareTaken(selectedSquare);
-                if (isSquareTaken)
+                Board.Square selectedSquare = new Board.Square();
+                InputManager.GetSquareFromPlayer(i_GameBoard.BoardSize, ref selectedSquare);
+                if(!m_Qselected)
                 {
-                    OutputManager.PrintInvalidSquareError();
-                    MakeHumanMove(i_GameBoard);
-                }
-                else
-                {
-                    i_GameBoard.addShape(Symbol, selectedSquare);
+                    bool isSquareTaken = i_GameBoard.CheckIfSquareTaken(selectedSquare);
+                    if(isSquareTaken)
+                    {
+                        OutputManager.PrintInvalidSquareError();
+                        MakeHumanMove(i_GameBoard);
+                    }
+                    else
+                    {
+                        i_GameBoard.addShape(Symbol, selectedSquare);
+                    }
                 }
             }   
             public void MakeComputerMove(Board i_GameBoard,Board.Square i_SelectedSquare)

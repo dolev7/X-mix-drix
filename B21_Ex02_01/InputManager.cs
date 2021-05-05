@@ -14,43 +14,50 @@ namespace B21_Ex02_01
             userData = Console.ReadLine();
             return userData;
         }
-        public static int getValidNumFromUser(int i_MinValue, int i_MaxValue, ref bool io_IsQ)
+        public static int getValidNumFromUser(int i_MinValue, int i_MaxValue)
         {
             bool isValid = false;
             int validNum = 0;
             while (!isValid)
             {
                 string userInput = getDataFromUser();
-                if (userInput == "q")
+                if (userInput == "q" || userInput == "Q")
                 {
-                    io_IsQ = true;
-                    isValid = true;
-                }
-                isValid = int.TryParse(userInput, out validNum);
-                if ((validNum >= i_MinValue) && (validNum <= i_MaxValue))
-                {
+                    GameManager.m_Qselected = true;
                     isValid = true;
                 }
                 else
                 {
-                    isValid = false;
-                    OutputManager.PrintInvalidNumberError();
+                    isValid = int.TryParse(userInput, out validNum);
+                    if((validNum >= i_MinValue) && (validNum <= i_MaxValue))
+                    {
+                        isValid = true;
+                    }
+                    else
+                    {
+                        isValid = false;
+                        OutputManager.PrintInvalidNumberError();
+                    }
                 }
-                
+
             }
 
             return validNum;
         }
-
-        public static Board.Square GetSquareFromPlayer(int i_BoardSize)
+        public static void GetSquareFromPlayer(int i_BoardSize,ref Board.Square i_SelectedSquare)
         {
             OutputManager.PrintRequestForRow();
             int userRowChoice = getValidNumFromUser(1, i_BoardSize);
-            OutputManager.PrintRequestForCol();
-            int userColChoice = getValidNumFromUser(1, i_BoardSize);
-            Board.Square userSquareChoice = new Board.Square() { m_Row = userRowChoice, m_Col = userColChoice };
-
-            return userSquareChoice;
+            if(!GameManager.m_Qselected)
+            {
+                OutputManager.PrintRequestForCol();
+                int userColChoice = getValidNumFromUser(1, i_BoardSize);
+                if(!GameManager.m_Qselected)
+                {
+                    i_SelectedSquare.m_Row = userRowChoice;
+                    i_SelectedSquare.m_Col = userColChoice;
+                }
+            }
         }
     }
 }
