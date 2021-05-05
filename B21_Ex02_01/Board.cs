@@ -57,6 +57,11 @@ namespace B21_Ex02_01
             m_BoardMatrix[row - 1, col - 1] = shape;
             m_AvailableSqaures.Remove(new Square() { m_Row = row - 1, m_Col = col - 1 });
         }
+        public void removeShape(char shape, int row, int col)
+        {
+            m_BoardMatrix[row - 1, col - 1] = null;
+            m_AvailableSqaures.Add(new Square() { m_Row = row - 1, m_Col = col - 1 });
+        }
 
         public bool CheckIfSquareTaken(int i_RowToCheck, int i_ColToCheck)
         {

@@ -44,17 +44,6 @@ namespace B21_Ex02_01
                     m_WinsCounter = value;
                 }
             }
-            public void MakeMove(Board i_GameBoard)
-            {
-                if(m_IsHuman)
-                {
-                    MakeHumanMove(i_GameBoard);
-                }
-                else
-                {
-                    MakeComputerMove(i_GameBoard);
-                }
-            }
             public void MakeHumanMove(Board i_GameBoard)
             {
                 int selectedRow = UI.GetRowFromPlayer(i_GameBoard.BoardSize);
@@ -70,14 +59,10 @@ namespace B21_Ex02_01
                     i_GameBoard.addShape(Symbol, selectedRow, selectedCol);
                 }
             }   
-            public void MakeComputerMove(Board i_GameBoard)
+            public void MakeComputerMove(Board i_GameBoard,Board.Square i_SelectedSquare)
             {
-                var random = new Random();
-                int indexInList = random.Next(i_GameBoard.AvailableSquares.Count);
-                int computerSelectedRow = i_GameBoard.AvailableSquares[indexInList].m_Row;
-                int computerSelectedCol = i_GameBoard.AvailableSquares[indexInList].m_Col;
-                
-
+                int computerSelectedRow = i_SelectedSquare.m_Row;
+                int computerSelectedCol = i_SelectedSquare.m_Col;
                 i_GameBoard.addShape(Symbol, computerSelectedRow + 1, computerSelectedCol + 1);
             }
 

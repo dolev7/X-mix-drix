@@ -118,15 +118,47 @@ No - press 2");
                 m_IsGameActive = false;
             }
         }
+        private Board.Square getComputerSmartChoice()
+        {
+            Board.Square selectedSquare = new Board.Square();
+            for (int i = 0 ; i < m_GameBoard.BoardSize * m_GameBoard.BoardSize; i++)
+            {
+                var random = new Random();
+                int indexInList = random.Next(m_GameBoard.AvailableSquares.Count);
+                selectedSquare = m_GameBoard.AvailableSquares[indexInList];
+                m_GameBoard.addShape(k_SymbolTwo, selectedSquare.m_Row + 1 , selectedSquare.m_Col + 1);
+                bool isNewMoveMadeWin = CheckWin();
+                if(isNewMoveMadeWin)
+                {
+                    isNewMoveMadeWin = false;
+                    m_GameBoard.removeShape(k_SymbolTwo, selectedSquare.m_Row + 1, selectedSquare.m_Col + 1);
+                }
+                else
+                {
+                    m_GameBoard.removeShape(k_SymbolTwo, selectedSquare.m_Row + 1, selectedSquare.m_Col + 1);
+                    break;
+                }
+            }
+            return selectedSquare;
+        }
+
         private void playTurn()
         {
             if(m_TurnCounter % 2 == 0)
             {
-                m_PlayerOne.MakeMove(m_GameBoard);
+                m_PlayerOne.MakeHumanMove(m_GameBoard);
             }
             else
             {
-                m_PlayerTwo.MakeMove(m_GameBoard);
+                if(m_PlayerTwo.IsHuman)
+                {
+                    m_PlayerTwo.MakeHumanMove(m_GameBoard);
+                }
+                else
+                {
+                    Board.Square computerAiChoice = getComputerSmartChoice();
+                    m_PlayerTwo.MakeComputerMove(m_GameBoard, computerAiChoice);
+                }
             }
             OutputManager.drawBoard(m_GameBoard);
         }
