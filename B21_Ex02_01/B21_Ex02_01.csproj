@@ -37,10 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="InputManager.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="UserInputValidator.cs" />
-    <Compile Include="UIMachine.cs" />
-    <Compile Include="XOGame.cs" />
+    <Compile Include="OutputManager.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Ex02.ConsoleUtils">

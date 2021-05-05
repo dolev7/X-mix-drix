@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B21_Ex02_01
 {
-    public class UIMachine
+    public class OutputManager
     {
         public static void printMessageToUser(string i_Message)
         {
@@ -18,12 +18,7 @@ namespace B21_Ex02_01
             Console.WriteLine(i_Message);
         }
 
-        public static string getDataFromUser()
-        {
-            string userData;
-            userData = Console.ReadLine();
-            return userData;
-        }
+       
 
         public static void drawBoard(Board i_GameBoard)
         {
