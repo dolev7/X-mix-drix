@@ -126,16 +126,16 @@ No - press 2");
                 var random = new Random();
                 int indexInList = random.Next(m_GameBoard.AvailableSquares.Count);
                 selectedSquare = m_GameBoard.AvailableSquares[indexInList];
-                m_GameBoard.addShape(k_SymbolTwo, selectedSquare.m_Row + 1 , selectedSquare.m_Col + 1);
+                m_GameBoard.addShape(k_SymbolTwo, selectedSquare);
                 bool isNewMoveMadeWin = CheckWin();
                 if(isNewMoveMadeWin)
                 {
                     isNewMoveMadeWin = false;
-                    m_GameBoard.removeShape(k_SymbolTwo, selectedSquare.m_Row + 1, selectedSquare.m_Col + 1);
+                    m_GameBoard.removeShape(k_SymbolTwo, selectedSquare);
                 }
                 else
                 {
-                    m_GameBoard.removeShape(k_SymbolTwo, selectedSquare.m_Row + 1, selectedSquare.m_Col + 1);
+                    m_GameBoard.removeShape(k_SymbolTwo, selectedSquare);
                     break;
                 }
             }

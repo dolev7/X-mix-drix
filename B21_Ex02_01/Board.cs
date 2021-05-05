@@ -43,29 +43,29 @@ namespace B21_Ex02_01
             m_BoardSize = i_SizeOfBoard;
             m_BoardMatrix = new char?[i_SizeOfBoard, i_SizeOfBoard];
             m_AvailableSqaures = new List<Square>();
-            for (int i = 0; i < m_BoardSize; i++)
+            for (int i = 1; i <= m_BoardSize; i++)
             {
-                for (int j = 0; j < m_BoardSize; j++)
+                for (int j = 1; j <= m_BoardSize; j++)
                 {
                     m_AvailableSqaures.Add(new Square() { m_Row = i, m_Col = j });
                 }
             }
         }
 
-        public void addShape(char shape, int row, int col)
+        public void addShape(char i_Shape, Square i_AddedSquare)
         {
-            m_BoardMatrix[row - 1, col - 1] = shape;
-            m_AvailableSqaures.Remove(new Square() { m_Row = row - 1, m_Col = col - 1 });
+            m_BoardMatrix[i_AddedSquare.m_Row - 1, i_AddedSquare.m_Col - 1] = i_Shape;
+            m_AvailableSqaures.Remove(new Square() { m_Row = i_AddedSquare.m_Row - 1, m_Col = i_AddedSquare.m_Col - 1 });
         }
-        public void removeShape(char shape, int row, int col)
+        public void removeShape(char i_Shape, Square i_AddedSquare)
         {
-            m_BoardMatrix[row - 1, col - 1] = null;
-            m_AvailableSqaures.Add(new Square() { m_Row = row - 1, m_Col = col - 1 });
+            m_BoardMatrix[i_AddedSquare.m_Row - 1, i_AddedSquare.m_Col - 1] = null;
+            m_AvailableSqaures.Add(new Square() { m_Row = i_AddedSquare.m_Row - 1, m_Col = i_AddedSquare.m_Col - 1 });
         }
 
-        public bool CheckIfSquareTaken(int i_RowToCheck, int i_ColToCheck)
+        public bool CheckIfSquareTaken(Square i_SquareToCheck)
         {
-            return m_BoardMatrix[i_RowToCheck - 1, i_ColToCheck - 1] != null;
+            return m_BoardMatrix[i_SquareToCheck.m_Row - 1, i_SquareToCheck.m_Col - 1] != null;
         }
 
         public bool CheckForRightSequence(int i_RowToCheck, int i_ColToCheck)

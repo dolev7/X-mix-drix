@@ -46,9 +46,8 @@ namespace B21_Ex02_01
             }
             public void MakeHumanMove(Board i_GameBoard)
             {
-                int selectedRow = UI.GetRowFromPlayer(i_GameBoard.BoardSize);
-                int selectedCol = UI.GetColFromPlayer(i_GameBoard.BoardSize);
-                bool isSquareTaken = i_GameBoard.CheckIfSquareTaken(selectedRow, selectedCol);
+                Board.Square selectedSquare = UI.GetSquareFromPlayer(i_GameBoard.BoardSize);
+                bool isSquareTaken = i_GameBoard.CheckIfSquareTaken(selectedSquare);
                 if (isSquareTaken)
                 {
                     OutputManager.printMessageToUser("The Square you selected is taken, Select a valid Square");
@@ -56,14 +55,12 @@ namespace B21_Ex02_01
                 }
                 else
                 {
-                    i_GameBoard.addShape(Symbol, selectedRow, selectedCol);
+                    i_GameBoard.addShape(Symbol, selectedSquare);
                 }
             }   
             public void MakeComputerMove(Board i_GameBoard,Board.Square i_SelectedSquare)
             {
-                int computerSelectedRow = i_SelectedSquare.m_Row;
-                int computerSelectedCol = i_SelectedSquare.m_Col;
-                i_GameBoard.addShape(Symbol, computerSelectedRow + 1, computerSelectedCol + 1);
+                i_GameBoard.addShape(Symbol, i_SelectedSquare);
             }
 
         }

@@ -29,15 +29,25 @@ For XO game against a human player - press 2");
             OutputManager.drawBoard(xogame.GameBoard);
             xogame.PlayGame();
         }
-        public static int GetRowFromPlayer(int i_BoardSize)
+        //public static int GetRowFromPlayer(int i_BoardSize)
+        //{
+        //    OutputManager.printMessageToUser("Please enter row number");
+        //    return InputManager.getValidNumFromUser(1, i_BoardSize);            
+        //}
+        //public static int GetColFromPlayer(int i_BoardSize)
+        //{
+        //    OutputManager.printMessageToUser("Please enter col number");
+        //    return InputManager.getValidNumFromUser(1, i_BoardSize);
+        //}
+        public static Board.Square GetSquareFromPlayer(int i_BoardSize)
         {
             OutputManager.printMessageToUser("Please enter row number");
-            return InputManager.getValidNumFromUser(1, i_BoardSize);            
-        }
-        public static int GetColFromPlayer(int i_BoardSize)
-        {
+            int userRowChoice = InputManager.getValidNumFromUser(1, i_BoardSize);
             OutputManager.printMessageToUser("Please enter col number");
-            return InputManager.getValidNumFromUser(1, i_BoardSize);
+            int userColChoice = InputManager.getValidNumFromUser(1, i_BoardSize);
+            Board.Square userSquareChoice = new Board.Square() { m_Row = userRowChoice, m_Col = userColChoice };
+
+            return userSquareChoice;
         }
 
     }
