@@ -8,7 +8,6 @@ namespace B21_Ex02_01
 {
     public class OutputManager
     {
-
         public static void printBoardLines(StringBuilder i_Message)
         {
             Console.WriteLine(i_Message);
@@ -38,13 +37,15 @@ No - press 2");
         }
 
         public static void PrintScoreBoard(int i_PlayerOneWinsCounter, int i_PlayerTwoWinsCounter)
-        {
-            Console.WriteLine(@"Scoreboard:
+        { 
+        Console.WriteLine(
+        @"Scoreboard:
 Player 1 : {0}
 Player 2 : {1}",
 i_PlayerOneWinsCounter,
 i_PlayerTwoWinsCounter);
         }
+
         public static void PrintInvalidSquareError()
         {
             Console.WriteLine("The Square you selected is taken, Select a valid Square");
@@ -82,6 +83,7 @@ i_PlayerTwoWinsCounter);
 For XO game against the computer - press 1
 For XO game against a human player - press 2");
         }
+
         public static void drawBoard(Board i_GameBoard)
         {
             Ex02.ConsoleUtils.Screen.Clear();

@@ -29,6 +29,14 @@ namespace B21_Ex02_01
         private Board m_GameBoard;
         private int m_TurnCounter;
 
+        public static void CheckForUserWithdraw()
+        {
+            if (GameManager.m_Qselected)
+            {
+                OutputManager.PrintGameOver();
+            }
+        }
+
         public GameManager()
         {
             m_Qselected = false;
@@ -47,10 +55,9 @@ namespace B21_Ex02_01
             }
         }
 
-        public void InitGame(int i_BoardSize, int i_UsersChoiceOfGameMode) //get parameters from main
+        public void InitGame(int i_BoardSize, int i_UsersChoiceOfGameMode) 
         {
-
-             m_GameBoard = new Board(i_BoardSize);
+            m_GameBoard = new Board(i_BoardSize);
             if (i_UsersChoiceOfGameMode == (int)eGameModes.GameModeOptionOne)
             {
                 m_PlayerTwo.IsHuman = false;
@@ -76,7 +83,6 @@ namespace B21_Ex02_01
 
                     UpdateEndRoundResult(isTieGame);
                     StartOverMenu();
-
                 }
 
                 m_TurnCounter++;
@@ -98,6 +104,7 @@ namespace B21_Ex02_01
                     playerOneWon = true;
                 }
             }
+
             OutputManager.printGameResult(i_IsTieGame, playerOneWon);
         }
 
@@ -119,10 +126,11 @@ namespace B21_Ex02_01
                 m_IsGameActive = false;
             }
         }
+
         private Board.Square getComputerSmartChoice()
         {
             Board.Square selectedSquare = new Board.Square();
-            for (int i = 0 ; i < m_GameBoard.BoardSize * m_GameBoard.BoardSize; i++)
+            for (int i = 0; i < m_GameBoard.BoardSize * m_GameBoard.BoardSize; i++)
             {
                 var random = new Random();
                 int indexInList = random.Next(m_GameBoard.AvailableSquares.Count);
@@ -140,6 +148,7 @@ namespace B21_Ex02_01
                     break;
                 }
             }
+
             return selectedSquare;
         }
 
@@ -172,15 +181,7 @@ namespace B21_Ex02_01
                 OutputManager.drawBoard(m_GameBoard);
             }
         }
-
-        public static void CheckForUserWithdraw()
-        {
-            if (GameManager.m_Qselected)
-            {
-                OutputManager.PrintGameOver();
-            }
-        }
-
+        
         private bool CheckWin()
         {
             bool hasPlayerWon = false;

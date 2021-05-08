@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace B21_Ex02_01
 {
-    class InputManager
+    public class InputManager
     {
         public static string getDataFromUser()
         {
@@ -14,6 +14,7 @@ namespace B21_Ex02_01
             userData = Console.ReadLine();
             return userData;
         }
+
         public static int getValidNumFromUser(int i_MinValue, int i_MaxValue)
         {
             bool isValid = false;
@@ -39,12 +40,12 @@ namespace B21_Ex02_01
                         OutputManager.PrintInvalidNumberError();
                     }
                 }
-
             }
-
+            
             return validNum;
         }
-        public static void GetSquareFromPlayer(int i_BoardSize,ref Board.Square i_SelectedSquare)
+
+        public static void GetSquareFromPlayer(int i_BoardSize, ref Board.Square i_SelectedSquare)
         {
             OutputManager.PrintRequestForRow();
             int userRowChoice = getValidNumFromUser(1, i_BoardSize);

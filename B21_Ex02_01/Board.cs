@@ -4,8 +4,8 @@ namespace B21_Ex02_01
 {
     public class Board
     {
+        private readonly int r_BoardSize;
         private char?[,] m_BoardMatrix;
-        private readonly int m_BoardSize;
         private List<Square> m_AvailableSqaures;
 
         public List<Square> AvailableSquares
@@ -26,7 +26,7 @@ namespace B21_Ex02_01
         {
             get
             {
-                return m_BoardSize;
+                return r_BoardSize;
             }
         }
 
@@ -40,12 +40,12 @@ namespace B21_Ex02_01
 
         public Board(int i_SizeOfBoard)
         {
-            m_BoardSize = i_SizeOfBoard;
+            r_BoardSize = i_SizeOfBoard;
             m_BoardMatrix = new char?[i_SizeOfBoard, i_SizeOfBoard];
             m_AvailableSqaures = new List<Square>();
-            for (int i = 1; i <= m_BoardSize; i++)
+            for (int i = 1; i <= r_BoardSize; i++)
             {
-                for (int j = 1; j <= m_BoardSize; j++)
+                for (int j = 1; j <= r_BoardSize; j++)
                 {
                     m_AvailableSqaures.Add(new Square() { m_Row = i, m_Col = j });
                 }
@@ -55,12 +55,13 @@ namespace B21_Ex02_01
         public void addShape(char i_Shape, Square i_AddedSquare)
         {
             m_BoardMatrix[i_AddedSquare.m_Row - 1, i_AddedSquare.m_Col - 1] = i_Shape;
-            m_AvailableSqaures.Remove(new Square() { m_Row = i_AddedSquare.m_Row , m_Col = i_AddedSquare.m_Col });
+            m_AvailableSqaures.Remove(new Square() { m_Row = i_AddedSquare.m_Row, m_Col = i_AddedSquare.m_Col });
         }
+
         public void removeShape(char i_Shape, Square i_AddedSquare)
         {
             m_BoardMatrix[i_AddedSquare.m_Row - 1, i_AddedSquare.m_Col - 1] = null;
-            m_AvailableSqaures.Add(new Square() { m_Row = i_AddedSquare.m_Row , m_Col = i_AddedSquare.m_Col });
+            m_AvailableSqaures.Add(new Square() { m_Row = i_AddedSquare.m_Row, m_Col = i_AddedSquare.m_Col });
         }
 
         public bool CheckIfSquareTaken(Square i_SquareToCheck)
@@ -78,7 +79,7 @@ namespace B21_Ex02_01
             }
             else
             {
-                for (int i = 1; i < m_BoardSize; i++)
+                for (int i = 1; i < r_BoardSize; i++)
                 {
                     if (m_BoardMatrix[i_RowToCheck - 1, i] != symbolToCheck)
                     {
@@ -101,7 +102,7 @@ namespace B21_Ex02_01
             }
             else
             {
-                for (int i = 1; i < m_BoardSize; i++)
+                for (int i = 1; i < r_BoardSize; i++)
                 {
                     if (m_BoardMatrix[i, i_ColToCheck - 1] != symbolToCheck)
                     {
@@ -126,7 +127,7 @@ namespace B21_Ex02_01
             }
             else
             {
-                for (int i = 1; i < m_BoardSize; i++)
+                for (int i = 1; i < r_BoardSize; i++)
                 {
                     if (m_BoardMatrix[i_RowToCheck + i, i_ColToCheck + i] != symbolToCheck)
                     {
@@ -135,6 +136,7 @@ namespace B21_Ex02_01
                     }
                 }
             }
+
             return isSequence;
         }
 
@@ -142,15 +144,15 @@ namespace B21_Ex02_01
         {
             i_RowToCheck--;
             i_ColToCheck--;
-            char? symbolToCheck = m_BoardMatrix[i_RowToCheck, i_ColToCheck ];
+            char? symbolToCheck = m_BoardMatrix[i_RowToCheck, i_ColToCheck];
             bool isSequence = true;
-            if (i_RowToCheck > 0 || i_ColToCheck < m_BoardSize - 1 || symbolToCheck == null)
+            if (i_RowToCheck > 0 || i_ColToCheck < r_BoardSize - 1 || symbolToCheck == null)
             {
                 isSequence = false;
             }
             else
             {
-                for (int i = 1; i < m_BoardSize; i++)
+                for (int i = 1; i < r_BoardSize; i++)
                 {
                     if (m_BoardMatrix[i_RowToCheck + i, i_ColToCheck - i] != symbolToCheck)
                     {

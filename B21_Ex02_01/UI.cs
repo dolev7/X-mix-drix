@@ -8,7 +8,7 @@ namespace B21_Ex02_01
 {
     public class UI
     {
-        public static void  RunGame()
+        public static void RunGame()
         {
             GameManager xoGame = new GameManager();
             OutputManager.PrintRequestForBoardSize();
@@ -20,6 +20,5 @@ namespace B21_Ex02_01
             xoGame.InitGame(boardSize, usersChoiceOfGameMode);
             xoGame.PlayGame();
         }
-
     }
 }
