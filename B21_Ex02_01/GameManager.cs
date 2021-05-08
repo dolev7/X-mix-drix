@@ -11,6 +11,8 @@ namespace B21_Ex02_01
     {
         public const int k_MaxBoardSize = 9;
         public const int k_MinBoardSize = 3;
+        public const char k_SymbolOne = 'X';
+        public const char k_SymbolTwo = 'O';
 
         public enum eGameModes
         {
@@ -18,11 +20,7 @@ namespace B21_Ex02_01
             GameModeOptionTwo
         }
 
-        public const char k_SymbolOne = 'X';
-        public const char k_SymbolTwo = 'O';
-
         public static bool m_QSelected;
-
         private Player m_PlayerOne;
         private Player m_PlayerTwo;
         private bool m_IsGameActive;
@@ -63,10 +61,9 @@ namespace B21_Ex02_01
             bool isTieGame = false;
             while (m_IsGameActive)
             {
-                bool playerHasWon = false;
                 playTurn();
-                playerHasWon = checkWin();
-                if (playerHasWon || m_TurnCounter == Math.Pow(m_GameBoard.BoardSize, 2) - 1)
+                bool playerHasWon = checkWin();
+                if (playerHasWon || m_TurnCounter == (int)Math.Pow(m_GameBoard.BoardSize, 2) - 1)
                 {
                     if (!playerHasWon)
                     {
@@ -97,7 +94,7 @@ namespace B21_Ex02_01
                 }
             }
 
-            OutputManager.printGameResult(i_IsTieGame, playerOneWon);
+            OutputManager.PrintGameResult(i_IsTieGame, playerOneWon);
         }
 
         public void StartOverMenu()

@@ -8,30 +8,35 @@ namespace B21_Ex02_01
 {
     public class OutputManager
     {
-        public static void printBoardLines(StringBuilder i_Message)
+        private static void printBoardLines(StringBuilder i_Lines)
+        {
+            Console.WriteLine(i_Lines);
+        }
+
+        private static void printMessageToUser(string i_Message)
         {
             Console.WriteLine(i_Message);
         }
 
-        public static void printGameResult(bool i_IsTieGame, bool i_playerOneWon)
+        public static void PrintGameResult(bool i_IsTieGame, bool i_playerOneWon)
         {
             if (i_IsTieGame)
             {
-                Console.WriteLine("Game has ended with tie result");
+                printMessageToUser("Game has ended with tie result");
             }
             else if (i_playerOneWon)
             {
-                Console.WriteLine("Player 1 wins this round");
+                printMessageToUser("Player 1 wins this round");
             }
             else
             {
-                Console.WriteLine("Player 2 wins this round");
+                printMessageToUser("Player 2 wins this round");
             }
         }
 
         public static void PrintUserRequestForAnotherRound()
         {
-            Console.WriteLine(@"Do you want to play another round?:
+            printMessageToUser(@"Do you want to play another round?:
 Yes - press 1
 No - press 2");
         }
@@ -48,38 +53,38 @@ i_PlayerTwoWinsCounter);
 
         public static void PrintInvalidSquareError()
         {
-            Console.WriteLine("The Square you selected is taken, Select a valid Square");
+            printMessageToUser("The Square you selected is taken, Select a valid Square");
         }
 
         public static void PrintInvalidNumberError()
         {
-            Console.WriteLine("Please enter a correct number");
+            printMessageToUser("Please enter a correct number");
         }
 
         public static void PrintGameOver()
         {
-            Console.WriteLine("Bye Bye :-)");
+            printMessageToUser("Bye Bye :-)");
             Environment.Exit(0);
         }
 
         public static void PrintRequestForBoardSize()
         {
-            Console.WriteLine("Please enter size of XO board between 3 and 9");
+            printMessageToUser("Please enter size of XO board between 3 and 9");
         }
 
         public static void PrintRequestForRow()
         {
-            Console.WriteLine("Please enter row number");
+            printMessageToUser("Please enter row number");
         }
 
         public static void PrintRequestForCol()
         {
-            Console.WriteLine("Please enter column number");
+            printMessageToUser("Please enter column number");
         }
 
         public static void PrintRequestForGameMode()
         {
-            Console.WriteLine(@"Please choose the game mode:
+            printMessageToUser(@"Please choose the game mode:
 For XO game against the computer - press 1
 For XO game against a human player - press 2");
         }

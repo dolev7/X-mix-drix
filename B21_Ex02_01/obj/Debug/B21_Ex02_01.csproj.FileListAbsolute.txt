@@ -22,3 +22,4 @@ C:\GuyRonen2\X-mix-drix\B21_Ex02_01\bin\Debug\Ex02.ConsoleUtils.dll
 C:\GuyRonen2\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CopyComplete
 C:\GuyRonen2\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.exe
 C:\GuyRonen2\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.pdb
+C:\GuyRonen2\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.csprojAssemblyReference.cache
