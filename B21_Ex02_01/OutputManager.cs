@@ -77,14 +77,14 @@ i_PlayerTwoWinsCounter);
             Console.WriteLine("Please enter column number");
         }
 
-        public static void printRequestForGameMode()
+        public static void PrintRequestForGameMode()
         {
             Console.WriteLine(@"Please choose the game mode:
 For XO game against the computer - press 1
 For XO game against a human player - press 2");
         }
 
-        public static void drawBoard(Board i_GameBoard)
+        public static void DrawBoard(Board i_GameBoard)
         {
             Ex02.ConsoleUtils.Screen.Clear();
             int sizeOfMatrix = i_GameBoard.BoardSize;
@@ -142,7 +142,7 @@ For XO game against a human player - press 2");
                 currentLine.Append("=");
             }
 
-           printBoardLines(currentLine);
+            printBoardLines(currentLine);
         }
     }
 }

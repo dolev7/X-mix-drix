@@ -52,13 +52,13 @@ namespace B21_Ex02_01
             }
         }
 
-        public void addShape(char i_Shape, Square i_AddedSquare)
+        public void AddShape(char i_Shape, Square i_AddedSquare)
         {
             m_BoardMatrix[i_AddedSquare.m_Row - 1, i_AddedSquare.m_Col - 1] = i_Shape;
             m_AvailableSqaures.Remove(new Square() { m_Row = i_AddedSquare.m_Row, m_Col = i_AddedSquare.m_Col });
         }
 
-        public void removeShape(char i_Shape, Square i_AddedSquare)
+        public void RemoveShape(char i_Shape, Square i_AddedSquare)
         {
             m_BoardMatrix[i_AddedSquare.m_Row - 1, i_AddedSquare.m_Col - 1] = null;
             m_AvailableSqaures.Add(new Square() { m_Row = i_AddedSquare.m_Row, m_Col = i_AddedSquare.m_Col });

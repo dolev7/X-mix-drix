@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-            UI.RunGame();
+            GameStarter.RunGame();
         }
     }
 }

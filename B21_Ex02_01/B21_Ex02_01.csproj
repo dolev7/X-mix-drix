@@ -42,7 +42,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="OutputManager.cs" />
     <Compile Include="GameManager.cs" />
-    <Compile Include="UI.cs" />
+    <Compile Include="GameStarter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Ex02.ConsoleUtils">

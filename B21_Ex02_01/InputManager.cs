@@ -8,23 +8,22 @@ namespace B21_Ex02_01
 {
     public class InputManager
     {
-        public static string getDataFromUser()
+        public static string GetDataFromUser()
         {
-            string userData;
-            userData = Console.ReadLine();
+            string userData = Console.ReadLine();
             return userData;
         }
 
-        public static int getValidNumFromUser(int i_MinValue, int i_MaxValue)
+        public static int GetValidNumFromUser(int i_MinValue, int i_MaxValue)
         {
             bool isValid = false;
             int validNum = 0;
             while (!isValid)
             {
-                string userInput = getDataFromUser();
+                string userInput = GetDataFromUser();
                 if (userInput == "q" || userInput == "Q")
                 {
-                    GameManager.m_Qselected = true;
+                    GameManager.m_QSelected = true;
                     isValid = true;
                 }
                 else
@@ -48,12 +47,12 @@ namespace B21_Ex02_01
         public static void GetSquareFromPlayer(int i_BoardSize, ref Board.Square i_SelectedSquare)
         {
             OutputManager.PrintRequestForRow();
-            int userRowChoice = getValidNumFromUser(1, i_BoardSize);
-            if(!GameManager.m_Qselected)
+            int userRowChoice = GetValidNumFromUser(1, i_BoardSize);
+            if(!GameManager.m_QSelected)
             {
                 OutputManager.PrintRequestForCol();
-                int userColChoice = getValidNumFromUser(1, i_BoardSize);
-                if(!GameManager.m_Qselected)
+                int userColChoice = GetValidNumFromUser(1, i_BoardSize);
+                if(!GameManager.m_QSelected)
                 {
                     i_SelectedSquare.m_Row = userRowChoice;
                     i_SelectedSquare.m_Col = userColChoice;

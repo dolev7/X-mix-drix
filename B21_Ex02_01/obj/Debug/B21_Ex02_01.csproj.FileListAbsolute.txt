@@ -14,7 +14,6 @@ C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex0
 C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.exe
 C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.pdb
 C:\GuyRonen\B21 Ex02 OmerGery 316124437 DanielDolev 316601996\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.csprojAssemblyReference.cache
-C:\GuyRonen2\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.csprojAssemblyReference.cache
 C:\GuyRonen2\X-mix-drix\B21_Ex02_01\obj\Debug\B21_Ex02_01.csproj.CoreCompileInputs.cache
 C:\GuyRonen2\X-mix-drix\B21_Ex02_01\bin\Debug\B21_Ex02_01.exe.config
 C:\GuyRonen2\X-mix-drix\B21_Ex02_01\bin\Debug\B21_Ex02_01.exe

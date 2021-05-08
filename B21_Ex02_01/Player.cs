@@ -2,8 +2,6 @@
 
 namespace B21_Ex02_01
 {
-    public partial class GameManager
-    {
         public class Player
         {
             private readonly char r_Symbol;
@@ -55,7 +53,7 @@ namespace B21_Ex02_01
             {
                 Board.Square selectedSquare = new Board.Square();
                 InputManager.GetSquareFromPlayer(i_GameBoard.BoardSize, ref selectedSquare);
-                if(!m_Qselected)
+                if(!GameManager.m_QSelected)
                 {
                     bool isSquareTaken = i_GameBoard.CheckIfSquareTaken(selectedSquare);
                     if(isSquareTaken)
@@ -65,15 +63,14 @@ namespace B21_Ex02_01
                     }
                     else
                     {
-                        i_GameBoard.addShape(Symbol, selectedSquare);
+                        i_GameBoard.AddShape(Symbol, selectedSquare);
                     }
                 }
             }   
 
             public void MakeComputerMove(Board i_GameBoard, Board.Square i_SelectedSquare)
             {
-                i_GameBoard.addShape(Symbol, i_SelectedSquare);
+                i_GameBoard.AddShape(Symbol, i_SelectedSquare);
             }
         }
     }
-}
