@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.PerformanceData;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B21_Ex02_01
 {
@@ -13,6 +8,8 @@ namespace B21_Ex02_01
         public const int k_MinBoardSize = 3;
         public const char k_SymbolOne = 'X';
         public const char k_SymbolTwo = 'O';
+        public const string k_QuitSymbolOne = "Q";
+        public const string k_QuitSymbolTwo = "q";
 
         public enum eGameModes
         {
@@ -29,7 +26,7 @@ namespace B21_Ex02_01
 
         public static void CheckForUserWithdraw()
         {
-            if (GameManager.m_QSelected)
+            if (m_QSelected)
             {
                 OutputManager.PrintGameOver();
             }
@@ -121,14 +118,13 @@ namespace B21_Ex02_01
             Board.Square selectedSquare = new Board.Square();
             for (int i = 0; i < m_GameBoard.BoardSize * m_GameBoard.BoardSize; i++)
             {
-                var random = new Random();
+                Random random = new Random();
                 int indexInList = random.Next(m_GameBoard.AvailableSquares.Count);
                 selectedSquare = m_GameBoard.AvailableSquares[indexInList];
                 m_GameBoard.AddShape(k_SymbolTwo, selectedSquare);
                 bool isNewMoveMadeWin = checkWin();
                 if(isNewMoveMadeWin)
                 {
-                    isNewMoveMadeWin = false;
                     m_GameBoard.RemoveShape(k_SymbolTwo, selectedSquare);
                 }
                 else

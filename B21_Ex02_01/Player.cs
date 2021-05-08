@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace B21_Ex02_01
+﻿namespace B21_Ex02_01
 {
         public class Player
         {

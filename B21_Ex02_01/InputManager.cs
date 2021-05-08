@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace B21_Ex02_01
 {
@@ -21,7 +17,7 @@ namespace B21_Ex02_01
             while (!isValid)
             {
                 string userInput = GetDataFromUser();
-                if (userInput == "q" || userInput == "Q")
+                if (userInput == GameManager.k_QuitSymbolOne || userInput == GameManager.k_QuitSymbolOne)
                 {
                     GameManager.m_QSelected = true;
                     isValid = true;
